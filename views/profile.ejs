@@ -1,0 +1,99 @@
+<% include partials/profile-header.ejs %>
+
+<h2 style='margin-left: 40%; color:black; margin-bottom: 3%;'> User Information </h2>
+<div style="display: flex; justify-content: center; margin-bottom: 5%;">
+    <div style="margin-right:30px;" class='child' id='contact'>
+        <ul>
+            <li> 
+                <i class="fa fa-user" style="font-size:24px;"></i>
+                <div id='namediv' style=' display: inline;'>
+                     
+                    <span id='name'> <%=info.FullName%> </span> 
+                    <span onclick='changeName()' >
+                        <i id='nameup' class="fas fa-edit" style='cursor: pointer;'></i> 
+                    </span>
+                </div>
+                
+                <form id='nameform' action='/update-user-name' method="post" style='display: none;'>
+                    <input id='inputname' type='text' placeholder="Enter Name: "/>
+                    <input id='savename' type='submit' value='save' />
+                </form>
+                
+                
+            </li> <br>
+
+            <li>
+                <i class="fa fa-university" style="font-size: 24px"> </i> 
+                <div id='unidiv' style=' display: inline;'>
+                    <span id='uni'> <%= info.University_Name %> </span> 
+                    <span onclick='changeUni()'>
+                        <i id='uniup' class="fas fa-edit" style='cursor: pointer;'></i>
+                    </span>
+                </div>
+                <form id='uniform' ation='/update-university-name' method='post' style='display: none;' >
+                    <input id='inputuni' type='text' value='' placeholder="Enter University: "/>
+                    <input id='saveuni' type='submit' value='save' />
+                </form>
+            </li> <br>
+
+            <li> 
+                <img src="/assets/images/google.svg" alt="Google button light"/>
+                <div id='googlediv' style=' display: inline;'>
+                    <span id='google'> <%= info.Google_ID %> </span> 
+                    <span onclick='changeGoogle()'>
+                        <i id='googleup' class="fas fa-edit" style='cursor: pointer;'></i> 
+                    </span>
+                </div>
+                <form id='googleform' ation='/update-google-id' method='post' style='display: none;' >
+                    <input id='inputgoogle' type='text' value='' placeholder="Enter Google ID: "/>
+                    <input id='savegoogle' type='submit' value='save' />
+                </form>
+            </li> <br>
+
+            <li> 
+                <img src="/assets/images/facebook.svg" alt="Google button light"> 
+                <div id='fbdiv' style='display: inline;'>
+                    <span id='fb'> <%=info.Facebook_ID%> </span> 
+                    <span onclick='changeFb()'>
+                        <i id='fbup' class="fas fa-edit" style='cursor: pointer;'></i>
+                    </span>
+                </div>
+                <form id='fbform' ation='/update-facebook-id' method='post' style='display: none;' >
+                    <input id='inputfb' type='text' value='' placeholder="Enter Facebook ID: "/>
+                    <input id='savefb' type='submit' value='save' />
+                </form>
+            </li> <br>
+
+            <li> 
+                <img src="/assets/images/twitter.svg" alt="Google button light"> 
+                <div id='twitdiv' style='display: inline;'>
+                    <span id='twit'> <%=info.Twitter_ID%> </span>
+                    <span onclick="changeTwit()">
+                        <i id='twitup' class="fas fa-edit" style='cursor: pointer;'></i>
+                    </span>
+                </div>
+                <form id='twitform' ation='/update-twitter-id' method='post' style='display: none;' >
+                    <input id='inputtwit' type='text' value='' placeholder="Enter Facebook ID: "/>
+                    <input id='savetwit' type='submit' value='save' />
+                </form>
+            </li> <br>
+        </ul>
+    </div>
+
+    <div style="margin-left:30px;">
+        <h2 class="star"><span>YOUR BOOK</span> LIST</h2>
+        <div class="clr"></div>
+        <ul id='booklist'>
+            <% books.forEach(function(item){ %>
+                <li class='book'> <a href="/book-details/<%=item.id%>"> <%= item.book_name %> </a> </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>
+
+
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/assets/js/profile.js"></script>
+
+<% include partials/footer.ejs %>

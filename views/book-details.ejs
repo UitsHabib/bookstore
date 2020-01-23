@@ -1,0 +1,59 @@
+<% include partials/header.ejs %>
+
+
+<h2 style='margin-left: 40%; color:black; margin-bottom: 3%;'> Book Information </h2>
+<div style="display: flex; justify-content: center; margin-bottom: 5%;">
+    <div class='child' id='contact'>
+        <ul>
+            <li> 
+                <div id='namediv' style=' display: inline;'>
+                    Book Title: <span id='name'> <%= book.book_name %></span> 
+                </div>
+            </li> <br>
+
+            <li>
+                <div id='unidiv' style=' display: inline;'>
+                    Book Author: <span id='uni'>  <%= book.book_author %> </span> 
+                </div>
+            </li> <br>
+
+            <li> 
+                <div id='googlediv' style=' display: inline;'>
+                    Book book_description: <span id='google'> <%= book.book_description %> </span> 
+                </div>
+            </li> <br>
+
+            <li> 
+                <div id='fbdiv' style='display: inline;'>
+                    ISBN: <span id='fb'>  <%= book.isbn %> </span> 
+                </div>
+            </li> <br>
+
+            <li> 
+                <div id='twitdiv' style='display: inline;'>
+                    Rating: <span id='twit'>  <%=book.rating%> </span>
+                </div>
+            </li> <br>
+
+            <li> 
+                <div id='twitdiv' style='display: inline;'>
+                    Sold by: <span id='twit'>  <%=book.seller_name%> </span>
+                </div>
+            </li> <br>
+
+            
+
+            
+        </ul>
+    </div>
+
+    <div class="child">
+        <img src='/assets/images/upload_images/<%=book.book_img%>' style="width:auto; height:200px;" />
+    </div>
+    
+</div>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="/assets/js/books.js"></script>
+
+<% include partials/footer.ejs %>

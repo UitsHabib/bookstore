@@ -1,0 +1,53 @@
+<% include partials/header.ejs %>
+
+<div class="content">
+    <div class="content_bg">
+        <div class="mainbar">
+            
+            <div class="article">
+                <div id='book_save'>
+                    <h2 style="text-align: center;"> Create Book </h2>
+                    <form action='/create-book' method='post' enctype="multipart/form-data">
+                        <input name='title' class='inp' type='text' placeholder="Book Title" required/> <br>
+                        <input name='author' class='inp' type='text' placeholder="Book Author" required/> <br>
+                        <input name='description' style="height: 50px;" class='inp' type='text' placeholder="Book Description" required/> <br>
+                        <input name='isbn' class='inp' type='text' placeholder="ISBN" required/> <br>
+                        <input name='rating' class='inp' type='text' placeholder="Rating" required/> <br>
+                        <input name='seller' class='inp' type='text' placeholder="Seller" required/> <br>
+                        <input name='img' class='inp' type='file' placeholder="Book Image" required/> <br>
+                        <input class='inp' type='submit' value="SAVE"/> 
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="gadget">
+                <h2 class="star"><span>YOUR BOOK</span> LIST</h2>
+                <div class="clr"></div>
+                <ul id='booklist'>
+                    <% books.forEach(function(item){ %>
+                        <li class='book'> <a href="/book-details/<%=item.id%>"> <%= item.book_name %> </a> </li>
+                    <% }) %>
+                </ul>
+            </div>
+             
+            <div class="gadget">
+                <h2 class="star"><span>Wise Words</span></h2>
+                <div class="clr"></div>
+                <div class="testi">
+                    <p><span class="q"><img src="assets/images/qoute_1.gif" width="20" height="15" alt="" /></span> We can let
+                        circumstances rule us, or we can take charge and rule our lives from within. <span
+                            class="q"><img src="assets/images/qoute_2.gif" width="20" height="15" alt="" /></span></p>
+                    <p class="title"><strong>Earl Nightingale</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+</div>
+</div>
+
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+<% include partials/footer.ejs %>

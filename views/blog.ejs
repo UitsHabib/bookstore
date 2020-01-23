@@ -1,0 +1,112 @@
+<% include partials/header.ejs %>
+
+<div class="content">
+    <div class="content_bg">
+        <div class="mainbar">
+            
+            <% if(user == "admin") { %>
+            <form style='margin-top:5%; margin-bottom:5%;' action="/post" method='post'>
+                <select name='category' style="height: 30px; width:630px; margin-bottom: 3%;">
+                    <% category.forEach(function(item){ %>
+                        <option value='<%= item.cat_id %>'> <%=item.category_name %></option>
+                    <% }) %>
+                </select>
+                <input name='title' type='text' style="height: 30px; width:630px; margin-bottom: 3%;" placeholder="Post Title:" /> <br>
+                <div style='background-color: #FFF;'> <textarea name='description' style="height:200px; width:630px; background-color: #FFF;"></textarea> </div>
+                <input style="height:30px; width:630px; background-color: #78bbe6;" type='submit' value="Post"/>
+            </form>
+            <% } %>}
+
+            <% posts.forEach(function(st){ %>
+            <div class="article">
+                <h2><span><%=st.title%></span></h2>
+                <div class="clr"></div>
+                <p class="post-data"><span class="date"><%st.post_date%></span> &nbsp;|&nbsp; Posted by <a
+                        href="#"><%=st.post_by%></a> &nbsp;|&nbsp; Filed under <a href="#"><%=st.category_name%>></a>
+                </p>
+                <img src="assets/images/images_1.jpg" width="613" height="193" alt="" />
+                <p><%=st.description%></p>
+                <p class="spec"><a href="#" class="com fr">Comments (3)</a> <a href="/post/<%=st.post_id%>" class="rm fl">Read more</a></p>
+                <div class="clr"></div>
+            </div>
+            <% }) %>
+            
+            <div class="article">
+                <h2><span>Template License</span></h2>
+                <div class="clr"></div>
+                <p class="post-data"><span class="date">March 16, 2018</span> &nbsp;|&nbsp; Posted by <a
+                        href="#">Owner</a> &nbsp;|&nbsp; Filed under <a href="#">templates</a>, <a href="#">internet</a>
+                </p>
+                <img src="assets/images/images_1.jpg" width="613" height="193" alt="" />
+                <p>This is a free CSS website template by RocketWebsiteTemplates.com. This work is distributed under the
+                    <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>,
+                    which means that you are free to use it for any personal or commercial purpose provided you credit
+                    me in the form of a link back to RocketWebsiteTemplates.com.</p>
+                <p class="spec"><a href="#" class="com fr">Comments (3)</a> <a href="#" class="rm fl">Read more</a></p>
+                <div class="clr"></div>
+            </div>
+            <div class="article">
+                <h2><span>Lorem Ipsum</span> Dolor Sit</h2>
+                <div class="clr"></div>
+                <p class="post-data"><span class="date">March 15, 2010</span> &nbsp;|&nbsp; Posted by <a
+                        href="#">Owner</a> &nbsp;|&nbsp; Filed under <a href="#">templates</a>, <a href="#">internet</a>
+                </p>
+                <img src="assets/images/images_2.jpg" width="613" height="193" alt="" />
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id
+                    urna. <a href="#">Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere
+                        nunc justo tempus leo.</a> Donec mattis, purus nec placerat bibendum, dui pede condimentum odio,
+                    ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum,
+                    lorem tellus eleifend magna, eget fringilla velit magna id neque. Curabitur vel urna. In tristique
+                    orci porttitor ipsum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero.
+                    Suspendisse bibendum. Cras id urna. Morbi tincidunt, orci ac convallis aliquam.</p>
+                <p>Aenean commodo elit ac ante dignissim iaculis sit amet non velit. Donec magna sapien, molestie sit
+                    amet faucibus sit amet, fringilla in urna. Aliquam erat volutpat. Fusce a dui est. Sed in volutpat
+                    elit. Nam odio tortor, pulvinar non scelerisque in, eleifend nec nunc. Sed pretium, massa sed dictum
+                    dapibus, nibh purus posuere magna, ac porta felis lectus ut neque. Nullam sagittis ante vitae velit
+                    facilisis lacinia. Cras vehicula lacinia ornare. Duis et cursus risus. Curabitur consectetur justo
+                    sit amet odio viverra vel iaculis odio gravida. Ut imperdiet metus nec erat.</p>
+                <p class="spec"><a href="#" class="com fr">Comments (7)</a> <a href="#" class="rm fl">Read more</a></p>
+                <div class="clr"></div>
+            </div>
+            <div class="pagenavi"><span class="pages">Page 1 of 2</span><span class="current">1</span><a
+                    href="#">2</a><a href="#">&raquo;</a></div>
+        </div>
+        <div class="sidebar">
+            <div class="gadget">
+                <h2 class="star"><span>Top</span> Programmers</h2>
+                <div class="clr"></div>
+                <ul class="sb_menu">
+                    <li class="active"><a href="#" style="border-radius: 15px;">Serial &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Total Solve</a></li>
+                    <li><a href="#" style="border-radius: 15px;">1 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Habibur Rahman &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">2 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Shahidullah Al Anik &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">3 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Mishu Jerry &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">4 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Habibur Rahman Raju &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">5 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Raihan Ahmed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">6 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Habibur Rahman &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">7 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Shahidullah Al Anik &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">8 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Mishu Jerry &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">9 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Habibur Rahman Raju &nbsp; &nbsp; &nbsp; 1570</a></li>
+                    <li><a href="#" style="border-radius: 15px;">10 &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Raihan Ahmed &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1570</a></li>
+                </ul>
+            </div>
+            
+            <div class="gadget">
+                <h2 class="star"><span>Wise Words</span></h2>
+                <div class="clr"></div>
+                <div class="testi">
+                    <p><span class="q"><img src="assets/images/qoute_1.gif" width="20" height="15" alt="" /></span> We can let
+                        circumstances rule us, or we can take charge and rule our lives from within. <span
+                            class="q"><img src="assets/images/qoute_2.gif" width="20" height="15" alt="" /></span></p>
+                    <p class="title"><strong>Earl Nightingale</strong></p>
+                </div>
+            </div>
+        </div>
+        <div class="clr"></div>
+    </div>
+</div>
+</div>
+
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+<% include partials/footer.ejs %>
